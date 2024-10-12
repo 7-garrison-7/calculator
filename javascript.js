@@ -1,3 +1,11 @@
+const digits = document.querySelector("#digits");
+
+for (let i = 0; i < 10; i++) {
+    let digit = document.createElement("button", `class = ${i}`);
+    digit.textContent = i;
+    digits.appendChild(digit);
+}
+
 function add(a, b) {
     return a + b;
 }
