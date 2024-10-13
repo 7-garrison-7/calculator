@@ -22,10 +22,6 @@ function divide(a, b) {
     return a / b;
 }
 
-let firstNum;
-let secondNum;
-let operation;
-
 function operate(first, second, operator) {
     switch (operator) {
         case "add":
@@ -42,3 +38,17 @@ function operate(first, second, operator) {
         break;
     }
 }
+const digitButtons = document.querySelectorAll("#digits button");
+const display = document.querySelector("#display");
+
+let firstNum;
+let secondNum;
+let operation;
+let displayVal = '0';
+
+display.textContent = displayVal;
+
+digitButtons.forEach(button => button.addEventListener('click', () => {
+    display.textContent == '0' ? displayVal = button.textContent : displayVal += button.textContent; 
+    display.textContent = displayVal;
+}));
