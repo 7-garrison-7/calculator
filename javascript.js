@@ -52,3 +52,6 @@ digitButtons.forEach(button => button.addEventListener('click', () => {
     display.textContent == '0' ? displayVal = button.textContent : displayVal += button.textContent; 
     display.textContent = displayVal;
 }));
+
+const clearButton = document.querySelector("#clear");
+clearButton.addEventListener("click", () => display.textContent = '0');
