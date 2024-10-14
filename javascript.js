@@ -34,8 +34,8 @@ function operate(first, second, operator) {
             return multiply(first, second);
             break;
         case "divide":
-        return divide(first, second);
-        break;
+            return divide(first, second);
+            break;
     }
 }
 const digitButtons = document.querySelectorAll("#digits button");
@@ -55,3 +55,19 @@ digitButtons.forEach(button => button.addEventListener('click', () => {
 
 const clearButton = document.querySelector("#clear");
 clearButton.addEventListener("click", () => display.textContent = '0');
+
+const operatorButtons = document.querySelectorAll(".operator");
+operatorButtons.forEach(button => {
+  button.addEventListener('click', () => {
+    firstNum = parseInt(display.textContent);
+    display.textContent = '0';
+    operation = button.id;
+  })  
+});
+
+const equalButton = document.querySelector("#equals");
+
+equalButton.addEventListener('click', () => {
+    secondNum = parseInt(display.textContent);
+    display.textContent = operate(firstNum, secondNum, operation);
+})
