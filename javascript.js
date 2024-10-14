@@ -43,24 +43,28 @@ const display = document.querySelector("#display");
 
 let firstNum;
 let secondNum;
-let operation;
-let displayVal = '0';
-
-display.textContent = displayVal;
+let operation = '';
+display.textContent = '0';
+let retain = true;
 
 digitButtons.forEach(button => button.addEventListener('click', () => {
-    display.textContent == '0' ? displayVal = button.textContent : displayVal += button.textContent; 
-    display.textContent = displayVal;
+    display.textContent == '0' || retain == false ? display.textContent = button.textContent : display.textContent += button.textContent;
+    retain = true;
 }));
 
 const clearButton = document.querySelector("#clear");
-clearButton.addEventListener("click", () => display.textContent = '0');
+clearButton.addEventListener("click", () => {
+    display.textContent = '0';
+    operation = '';
+    firstNum = 0;
+    secondNum = 0;
+});
 
 const operatorButtons = document.querySelectorAll(".operator");
 operatorButtons.forEach(button => {
   button.addEventListener('click', () => {
     firstNum = parseInt(display.textContent);
-    display.textContent = '0';
+    retain = false;
     operation = button.id;
   })  
 });
@@ -70,4 +74,5 @@ const equalButton = document.querySelector("#equals");
 equalButton.addEventListener('click', () => {
     secondNum = parseInt(display.textContent);
     display.textContent = operate(firstNum, secondNum, operation);
+    retain = false;
 })
