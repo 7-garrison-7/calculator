@@ -73,7 +73,7 @@ operatorButtons.forEach(button => {
 const equalButton = document.querySelector("#equals");
 
 equalButton.addEventListener('click', () => {
-    evaluate();
+    if (operation != '') {evaluate()}
 })
 
 function evaluate() {
