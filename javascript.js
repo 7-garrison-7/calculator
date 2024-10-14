@@ -78,7 +78,7 @@ equalButton.addEventListener('click', () => {
 
 function evaluate() {
     secondNum = parseInt(display.textContent);
-    display.textContent = operate(firstNum, secondNum, operation);
+    operation == 'divide' && secondNum == 0 ? display.textContent = "Error!" : display.textContent = operate(firstNum, secondNum, operation);
     operation = '';
     retain = false;
 }
