@@ -63,6 +63,7 @@ clearButton.addEventListener("click", () => {
 const operatorButtons = document.querySelectorAll(".operator");
 operatorButtons.forEach(button => {
   button.addEventListener('click', () => {
+    if (operation != '') {evaluate()}
     firstNum = parseInt(display.textContent);
     retain = false;
     operation = button.id;
@@ -72,7 +73,12 @@ operatorButtons.forEach(button => {
 const equalButton = document.querySelector("#equals");
 
 equalButton.addEventListener('click', () => {
+    evaluate();
+})
+
+function evaluate() {
     secondNum = parseInt(display.textContent);
     display.textContent = operate(firstNum, secondNum, operation);
+    operation = '';
     retain = false;
-})
+}
