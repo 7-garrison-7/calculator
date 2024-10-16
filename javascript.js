@@ -39,6 +39,12 @@ function operate(first, second, operator) {
             break;
     }
 }
+
+function round(value, precision) {
+    var multiplier = Math.pow(10, precision || 0);
+    return Math.round(value * multiplier) / multiplier;
+}
+
 const digitButtons = document.querySelectorAll(".digit");
 const display = document.querySelector("#display");
 
@@ -79,7 +85,8 @@ equalButton.addEventListener('click', () => {
 
 function evaluate() {
     secondNum = parseInt(display.textContent);
-    operation == 'divide' && secondNum == 0 ? display.textContent = "Error!" : display.textContent = operate(firstNum, secondNum, operation);
+    operation == 'divide' && secondNum == 0 ? display.textContent = "Error!" : display.textContent = round(operate(firstNum, secondNum, operation), 6);
     operation = '';
     retain = false;
 }
+
