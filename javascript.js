@@ -1,7 +1,8 @@
 const digits = document.querySelector("#digits");
 
 for (let i = 0; i < 10; i++) {
-    let digit = document.createElement("button", `class = ${i}`);
+    let digit = document.createElement("button");
+    digit.setAttribute("class", "digit");
     digit.textContent = i;
     digits.appendChild(digit);
 }
@@ -38,7 +39,7 @@ function operate(first, second, operator) {
             break;
     }
 }
-const digitButtons = document.querySelectorAll("#digits button");
+const digitButtons = document.querySelectorAll(".digit");
 const display = document.querySelector("#display");
 
 let firstNum;
